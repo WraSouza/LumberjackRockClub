@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundColor="White"
+             x:Class="LumberjackRockClub.View.MainView">
+    <ContentPage.Content>
+        <Grid>
+            <StackLayout>
+
+                <Image Source="barbearia_logo.png"
+                       Margin="0,90,0,0"
+                       VerticalOptions="Start"
+                       HorizontalOptions="Center"
+                       HeightRequest="150"/>
+
+                <Button BackgroundColor="Black"
+                        CornerRadius="20"
+                        Margin="30,100,30,0"
+                        Text="Criar Conta"
+                        TextColor="White"/>
+
+                <Button BackgroundColor="White"
+                        BorderColor="Black"
+                        BorderWidth="1"
+                        CornerRadius="20"
+                        Margin="30,20,30,0"
+                        Text="Sou Visitante"
+                        TextColor="Black"/>
+
+                <StackLayout Orientation="Horizontal"
+                             Margin="0,50,0,0"
+                             Spacing="30"
+                             HorizontalOptions="Center"
+                             VerticalOptions="Center">
+                    
+                    <Image Source="facebook.png"/>
+
+                    <Image Source="instagram.png"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal"
+                             Margin="0,0,0,20"
+                             VerticalOptions="EndAndExpand"
+                             HorizontalOptions="Center">
+                    
+                    <Label Text="Já tem conta?"
+                           TextColor="Black"/>
+
+                    <Label Text="Fazer Login"
+                           TextColor="Blue"/>
+                </StackLayout>
+
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
