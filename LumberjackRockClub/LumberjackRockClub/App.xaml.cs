@@ -10,7 +10,7 @@ namespace LumberjackRockClub
         {
             InitializeComponent();
 
-            MainPage = new View.MainView();
+            MainPage = new NavigationPage ( new View.MainView() );
         }
 
         protected override void OnStart()

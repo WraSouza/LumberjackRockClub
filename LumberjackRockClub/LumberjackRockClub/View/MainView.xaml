@@ -1,8 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mvvm="clr-namespace:LumberjackRockClub.ViewModel"
+             NavigationPage.HasNavigationBar="False"
+             Title="Lumberjack Rock Club"
              BackgroundColor="White"
              x:Class="LumberjackRockClub.View.MainView">
+
+    <ContentPage.BindingContext>
+        <mvvm:MainViewModel/>
+    </ContentPage.BindingContext>
+    
     <ContentPage.Content>
         <Grid>
             <StackLayout>
@@ -14,6 +22,7 @@
                        HeightRequest="150"/>
 
                 <Button BackgroundColor="Black"
+                        Command="{Binding OpenCreatAccount}"
                         CornerRadius="20"
                         Margin="30,100,30,0"
                         Text="Criar Conta"
@@ -32,10 +41,18 @@
                              Spacing="30"
                              HorizontalOptions="Center"
                              VerticalOptions="Center">
-                    
-                    <Image Source="facebook.png"/>
 
-                    <Image Source="instagram.png"/>
+                    <Image Source="facebook.png">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding OpenFacebook}"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+
+                    <Image Source="instagram.png">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding OpenInstagram}"/>
+                        </Image.GestureRecognizers>
+                    </Image>
                 </StackLayout>
 
                 <StackLayout Orientation="Horizontal"
@@ -47,7 +64,11 @@
                            TextColor="Black"/>
 
                     <Label Text="Fazer Login"
-                           TextColor="Blue"/>
+                           TextColor="Blue">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding OpenLogin}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
                 </StackLayout>
 
             </StackLayout>

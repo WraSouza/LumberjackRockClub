@@ -1,12 +1,43 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="False"             
+             BackgroundColor="White"
              x:Class="LumberjackRockClub.View.LoginView">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid>
+            <StackLayout>
+                <Image Source="barbearia_logo.png"
+                       Margin="0,90,0,0"
+                       VerticalOptions="Start"
+                       HorizontalOptions="Center"
+                       HeightRequest="150"/>
+
+                <Label Text="Login"
+                       Margin="20,40,0,0"
+                       TextColor="Black"
+                       FontAttributes="Bold"
+                       FontSize="20"/>
+
+                <Entry Margin="20,5,20,0"/>
+
+                <Label Text="Senha"
+                       Margin="20,40,0,0"
+                       TextColor="Black"
+                       FontAttributes="Bold"
+                       FontSize="20"/>
+
+                <Entry Margin="20,5,20,0"
+                       IsPassword="True"/>
+
+                <Button Text="Login"
+                        Margin="20,80,20,0"
+                        CornerRadius="20"
+                        BackgroundColor="Black"
+                        TextColor="White"
+                        FontSize="15"/>
+                
+            </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
