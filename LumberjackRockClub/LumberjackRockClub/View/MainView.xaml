@@ -34,6 +34,7 @@
                         CornerRadius="20"
                         Margin="30,20,30,0"
                         Text="Sou Visitante"
+                        Command="{Binding OpenVisitors}"
                         TextColor="Black"/>
 
                 <StackLayout Orientation="Horizontal"

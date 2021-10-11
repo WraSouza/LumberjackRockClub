@@ -11,9 +11,10 @@ namespace LumberjackRockClub.ViewModel
         public INavigation Navigation { get; set; }
         public Command OpenLogin { get; set; }
         public Command OpenCreatAccount { get; set; }
-
         public Command OpenFacebook { get; set; }
         public Command OpenInstagram { get; set; }
+        public Command OpenVisitors { get; set; }
+        public Command OpenBarber { get; set; }
 
         public MainViewModel()
         {
@@ -26,6 +27,13 @@ namespace LumberjackRockClub.ViewModel
             OpenCreatAccount = new Command(async () => await OpenCreatAccountView());
             OpenFacebook = new Command( async () => await OpenFacebookView());
             OpenInstagram = new Command( async () => await OpenInstagramView());
+            OpenVisitors = new Command(async () => await OpenVisitorsView());
+            
+        }        
+
+        private async Task OpenVisitorsView()
+        {
+            await Navigation.PushAsync(new View.VisitorsView());
         }
 
         private async Task OpenInstagramView()

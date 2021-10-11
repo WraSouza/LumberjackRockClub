@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:mvvm="clr-namespace:LumberjackRockClub.ViewModel"
+             BackgroundColor="White"
+             x:Class="LumberjackRockClub.View.VisitorsView">
+    <ContentPage.BindingContext>
+        <mvvm:VisitorsViewModel/>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <Grid>
+            <StackLayout>
+                <Image Source="barbearia_logo.png"
+                       Margin="0,50,0,0"
+                       VerticalOptions="Start"
+                       HorizontalOptions="Center"
+                       HeightRequest="150"/>
+
+                <Frame HorizontalOptions="Center">
+                    <StackLayout>
+                        <Image Source="barberpole.png"
+                               Margin="0,20,0,0"
+                               HeightRequest="60"/>
+
+                        <Label Text="Barbearia"
+                               HorizontalTextAlignment="Center"
+                               TextColor="Black"
+                               FontSize="30"/>
+
+                        <Button Text="Marcar Horário"
+                                Command="{Binding OpenBarber}"
+                                BackgroundColor="White"
+                                VerticalOptions="Center"
+                                HorizontalOptions="Center"
+                                ImageSource="schedule.png"/>
+                    </StackLayout>
+                    
+                </Frame>
+
+                <Frame HorizontalOptions="Center">
+                    <StackLayout>
+                        <Image Source="restaurant.png"
+                               Margin="0,20,0,0"
+                               HeightRequest="60"/>
+
+                        <Label Text="Restaurante"
+                               HorizontalTextAlignment="Center"
+                               TextColor="Black"
+                               FontSize="30"/>
+                    </StackLayout>
+                </Frame>
+
+                
+
+                <!--<Label HorizontalTextAlignment="Center">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Barbearia"
+                                  TextColor="Black"
+                                  FontSize="30"/>
+                            <Span Text="&#10;"/>
+                            <Span Text="&#10;"/>
+                            <Span Text="Marque um Horário"
+                                  TextColor="#1414AE"
+                                  TextDecorations="Underline">
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding OpenBarber}"/>
+                                </Span.GestureRecognizers>
+                            </Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>-->
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
