@@ -16,5 +16,10 @@ namespace LumberjackRockClub.View
         {
             InitializeComponent();
         }
+
+        public static implicit operator Page(PrincipalView v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
