@@ -49,29 +49,17 @@
                                HorizontalTextAlignment="Center"
                                TextColor="Black"
                                FontSize="30"/>
+
+                        <Button Text="Venha Conhecer"
+                                Command="{Binding OpenBarber}"
+                                BackgroundColor="White"
+                                VerticalOptions="Center"
+                                HorizontalOptions="Center"
+                                ImageSource="login.png"/>
                     </StackLayout>
-                </Frame>
+                </Frame>                
 
-                
-
-                <!--<Label HorizontalTextAlignment="Center">
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <Span Text="Barbearia"
-                                  TextColor="Black"
-                                  FontSize="30"/>
-                            <Span Text="&#10;"/>
-                            <Span Text="&#10;"/>
-                            <Span Text="Marque um Horário"
-                                  TextColor="#1414AE"
-                                  TextDecorations="Underline">
-                                <Span.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding OpenBarber}"/>
-                                </Span.GestureRecognizers>
-                            </Span>
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>-->
+               
             </StackLayout>
         </Grid>
     </ContentPage.Content>
