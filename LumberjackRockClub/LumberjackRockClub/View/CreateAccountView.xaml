@@ -5,7 +5,12 @@
              BackgroundColor="White"
              Visual="Material"
              Title="Crie Sua Conta"
+             xmlns:mvvm="clr-namespace:LumberjackRockClub.ViewModel"
              x:Class="LumberjackRockClub.View.CreateAccountView">
+    <ContentPage.BindingContext>
+        <mvvm:CreateAccountViewModel/>
+    </ContentPage.BindingContext>
+    
     <ContentPage.Content>
         <Grid>
             <StackLayout>
@@ -15,14 +20,14 @@
                        HorizontalOptions="Center"
                        HeightRequest="150"/>
 
-                <Label Text="Nome"
+                <Label Text="E-mail"
                        Margin="20,40,0,0"
                        TextColor="Black"
                        FontAttributes="Bold"
                        FontSize="20"/>
 
-                <Entry Placeholder="(Ex.: Ricardo)"
-                       BackgroundColor="White"
+                <Entry BackgroundColor="White"
+                       Text="{Binding Email}"
                        Margin="20,0,20,0"
                        PlaceholderColor="Black"/>
 
@@ -32,8 +37,8 @@
                        FontAttributes="Bold"
                        FontSize="20"/>
 
-                <Entry Placeholder="(Ex.: Ricardo)"
-                       BackgroundColor="White"
+                <Entry BackgroundColor="White"
+                       Text="{Binding Name}"
                        Margin="20,0,20,0"
                        PlaceholderColor="Black"/>
 
@@ -42,6 +47,17 @@
                        TextColor="Black"
                        FontAttributes="Bold"
                        FontSize="20"/>
+
+                <Entry BackgroundColor="White"
+                       Text="{Binding Password}"
+                       IsPassword="True"
+                       Margin="20,0,20,0"
+                       PlaceholderColor="Black"/>
+
+                <Button Text="Cria Conta"
+                        Command="{Binding CreateUser}"
+                        TextColor="White"
+                        BackgroundColor="Black"/>
             </StackLayout>
         </Grid>
     </ContentPage.Content>
