@@ -154,4 +154,16 @@
   <ItemGroup>
     <BundleResource Include="Resources\login.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\beer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\burger.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\guitar.png" />
+  </ItemGroup>
 </Project>

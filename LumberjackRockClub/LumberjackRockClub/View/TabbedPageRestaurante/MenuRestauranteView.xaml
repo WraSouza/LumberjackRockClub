@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<FlyoutPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            NavigationPage.HasNavigationBar="False"
+             xmlns:views="clr-namespace:LumberjackRockClub.View.TabbedPageRestaurante"
+             x:Class="LumberjackRockClub.View.TabbedPageRestaurante.MenuRestauranteView">
+
+    <FlyoutPage.Flyout>
+        <ContentPage Title="Menu">
+            <StackLayout BackgroundColor="White">
+                <Button Text="Restaurante"
+                        Clicked="openRestaurantView"
+                        ImageSource="restaurant.png"/>
+                
+                <Button Text="Bar/Lanchonete"
+                        Clicked="openBarView"
+                        ImageSource="beer.png"/>
+            </StackLayout>
+        </ContentPage>
+    </FlyoutPage.Flyout>
+
+    <FlyoutPage.Detail>
+        <NavigationPage>
+            <x:Arguments>
+                <views:RestauranteView/>
+            </x:Arguments>
+        </NavigationPage>
+    </FlyoutPage.Detail>
+    
+
+</FlyoutPage>

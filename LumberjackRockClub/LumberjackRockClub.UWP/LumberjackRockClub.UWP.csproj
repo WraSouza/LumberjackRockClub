@@ -132,9 +132,13 @@
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
     <Content Include="barberpole.png" />
+    <Content Include="beer.png" />
+    <Content Include="burger.png" />
     <Content Include="facebook.png" />
+    <Content Include="guitar.png" />
     <Content Include="instagram.png" />
     <Content Include="login.png" />
+    <Content Include="logout.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="restaurant.png" />
     <Content Include="schedule.png" />

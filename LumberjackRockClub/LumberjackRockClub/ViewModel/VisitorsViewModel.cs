@@ -9,7 +9,8 @@ namespace LumberjackRockClub.ViewModel
     public class VisitorsViewModel : BaseViewModel
     {
         public INavigation Navigation { get; set; }
-        public Command OpenBarber { get; set; }     
+        public Command OpenBarber { get; set; }    
+        public Command OpenRestaurant { get; set; }
         
         public VisitorsViewModel()
         {
@@ -20,6 +21,12 @@ namespace LumberjackRockClub.ViewModel
         {
             this.Navigation = navigation;
             OpenBarber = new Command(async () => await OpenBarberView());
+            OpenRestaurant = new Command(async () => await OpenRestaurantView());
+        }
+
+        private async Task OpenRestaurantView()
+        {
+            await Navigation.PushAsync(new View.TabbedPageRestaurante.MenuRestauranteView());
         }
 
         private async Task OpenBarberView()
