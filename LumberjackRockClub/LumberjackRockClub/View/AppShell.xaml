@@ -2,8 +2,30 @@
 <Shell xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:views="clr-namespace:LumberjackRockClub.View"
+             Shell.TabBarBackgroundColor="White"
+             Shell.BackgroundColor="White"
+             Shell.TitleColor="Black"
+             Shell.DisabledColor="Gray"
+             Shell.TabBarTitleColor="Black" 
+             Shell.ForegroundColor="Black"
+             Shell.TabBarUnselectedColor="LightGray"
              x:Class="LumberjackRockClub.View.AppShell">
-    <FlyoutItem>
+    <FlyoutItem Title="Início">
+        <Tab Title="Login">
+            <ShellContent Title="Login" ContentTemplate="{DataTemplate views:LoginView}"/>
+            <ShellContent Title="Login" ContentTemplate="{DataTemplate views:FacebookView}"/>
+        </Tab>
+
+        <Tab Title="Instagram">
+            <ShellContent ContentTemplate="{DataTemplate views:InstagramView}"/>
+        </Tab>
+        
+    </FlyoutItem>
+
+    <FlyoutItem Title="Início">
+        <ShellContent ContentTemplate="{DataTemplate views:InstagramView}"/>
+    </FlyoutItem>
+    <!--<FlyoutItem>
         <Tab>
             <ShellContent ContentTemplate="{DataTemplate views:PrincipalView}"/>
             <ShellContent ContentTemplate="{DataTemplate views:PrincipalView}"/>
@@ -14,5 +36,5 @@
             <ShellContent ContentTemplate="{DataTemplate views:PrincipalView}"/>
             <ShellContent ContentTemplate="{DataTemplate views:PrincipalView}"/>
         </Tab>
-    </FlyoutItem>
+    </FlyoutItem>-->
 </Shell>

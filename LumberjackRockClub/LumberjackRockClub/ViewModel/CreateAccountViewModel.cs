@@ -69,20 +69,21 @@ namespace LumberjackRockClub.ViewModel
                     try
                     {
                         bool confirmaUsuarioCriado = await novoUsuario.RegisterUser(Name, Password, Email, createDay, createDay, perfiltype);
+
                         if (confirmaUsuarioCriado)
                         {
-                            await App.Current.MainPage.DisplayAlert("Sucesso", "Usuário Criado Com Sucesso", "OK");
+                            await Application.Current.MainPage.DisplayAlert("Sucesso", "Usuário Criado Com Sucesso", "OK");
 
-                            App.Current.MainPage = new View.AppShell();
+                            Application.Current.MainPage = new View.AppShell();
                         }
                         else
                         {
-                            await App.Current.MainPage.DisplayAlert("Erro", "Não Foi Possível Criar Usuário", "OK");
+                            await Application.Current.MainPage.DisplayAlert("Erro", "Não Foi Possível Criar Usuário", "OK");
                         }
                     }
                     catch(Exception ex)
                     {
-                        await App.Current.MainPage.DisplayAlert("Erro",ex.Message.ToString() , "OK");
+                        await Application.Current.MainPage.DisplayAlert("Erro",ex.Message.ToString() , "OK");
                     }
                    
                 }
