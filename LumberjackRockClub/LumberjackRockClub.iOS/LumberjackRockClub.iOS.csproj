@@ -166,4 +166,10 @@
   <ItemGroup>
     <BundleResource Include="Resources\guitar.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\guitarSelected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\burgerSelected.png" />
+  </ItemGroup>
 </Project>

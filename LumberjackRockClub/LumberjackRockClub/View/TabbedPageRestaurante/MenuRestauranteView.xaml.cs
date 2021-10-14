@@ -28,5 +28,10 @@ namespace LumberjackRockClub.View.TabbedPageRestaurante
             IsPresented = false;
             Detail = new NavigationPage(new BarView());
         }
+
+        private void abrirTelaInicial(object sender, EventArgs e)
+        {
+            Application.Current.MainPage = new NavigationPage(new View.MainView());
+        }
     }
 }
