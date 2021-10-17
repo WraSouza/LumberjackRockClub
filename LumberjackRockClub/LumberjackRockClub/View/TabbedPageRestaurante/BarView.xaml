@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              Title="Barbearia Lumberjack"
+             BackgroundColor="White"
              xmlns:views="clr-namespace:LumberjackRockClub.View.TabbedPageRestaurante"
              x:Class="LumberjackRockClub.View.TabbedPageRestaurante.BarView">
     
@@ -18,7 +19,24 @@
                              TextColorSelected="#FF6E72"
                              Text="Lanches/Petiscos">
                 <Grid>
-                    <Image Source="barbearia_logo.png"/>
+                    <StackLayout>
+                        <Image Source="barbearia_logo.png"/>
+                        <Frame>
+                            <StackLayout>
+                                <Image></Image>
+                                <Label Text="Ingredientes"
+                                       TextColor="Black"/>
+                                <Editor />
+                                <Label Text="Preço"
+                                       TextColor="Black"/>
+                            </StackLayout>
+                            
+                        </Frame>
+                        
+                        <Button Text="Adicionar"
+                                Clicked="SalvarLanche"/>
+                    </StackLayout>
+                    
                 </Grid>
             </xct:TabViewItem>
 
