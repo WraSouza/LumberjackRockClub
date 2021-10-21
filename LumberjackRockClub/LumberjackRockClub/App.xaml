@@ -3,6 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LumberjackRockClub.App">
     <Application.Resources>
-
+        <Color x:Key="Black">#000000</Color>
     </Application.Resources>
 </Application>

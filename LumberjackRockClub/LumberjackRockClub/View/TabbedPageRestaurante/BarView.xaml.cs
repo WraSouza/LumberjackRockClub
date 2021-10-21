@@ -1,6 +1,11 @@
-﻿using Plugin.Media;
+﻿using Firebase.Database;
+using Firebase.Database.Query;
+using Firebase.Storage;
+using Plugin.Media;
+using Plugin.Media.Abstractions;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -14,6 +19,7 @@ namespace LumberjackRockClub.View.TabbedPageRestaurante
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class BarView : ContentPage
     {
+        MediaFile file;
         public BarView()
         {
             InitializeComponent();
@@ -21,10 +27,11 @@ namespace LumberjackRockClub.View.TabbedPageRestaurante
 
         private async void SalvarLanche(object sender, EventArgs e)
         {
+            
             await CrossMedia.Current.Initialize();
             try
             {
-                File = await Plugin.Media.CrossMedia.Current.PickPhotoAsync(new Plugin.Media.Abstractions.PickMediaOptions
+                file = await Plugin.Media.CrossMedia.Current.PickPhotoAsync(new Plugin.Media.Abstractions.PickMediaOptions
                 {
                     PhotoSize = Plugin.Media.Abstractions.PhotoSize.Medium
                 });
@@ -35,12 +42,30 @@ namespace LumberjackRockClub.View.TabbedPageRestaurante
                     var imageStram = file.GetStream();
                     return imageStram;
                 });
-                await StoreImages(file.GetStream());
+                await StoreImages(file.GetStream(), lblIngredientes.Text);
             }
             catch (Exception ex)
             {
                 Debug.WriteLine(ex.Message);
             }
+        }
+
+        private async Task<string> StoreImages(Stream imageStream, string descricao)
+        {
+            string nomeLanche = lblNomeLanche.Text;
+            var storageImage = await new FirebaseStorage("barbearialumberjack-249aa.appspot.com")
+               .Child("Lanches")
+               .Child(nomeLanche + ".jpg")
+               .PutAsync(imageStream);
+            string imgurl = storageImage;
+            return imgurl;
+            
+        }
+
+        private async void EnviarLanche(object sender, EventArgs e)
+        {
+            
+            await StoreImages(file.GetStream(), lblIngredientes.Text);
         }
     }
 }

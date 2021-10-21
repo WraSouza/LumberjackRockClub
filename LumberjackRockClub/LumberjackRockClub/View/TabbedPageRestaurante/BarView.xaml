@@ -20,11 +20,29 @@
                              Text="Lanches/Petiscos">
                 <Grid>
                     <StackLayout>
-                        <Image Source="barbearia_logo.png"/>
+                        <Image Source="barbearia_logo.png"
+                               HeightRequest="100"/>
+                        
+                        <Button Text="Selecionar Imagem"
+                                Margin="30,0,30,0"
+                                CornerRadius="10"
+                                TextColor="White"
+                                BackgroundColor="{StaticResource Black}"
+                                Clicked="SalvarLanche"/>
                         <Frame>
                             <StackLayout>
-                                <Image></Image>
+                                <Image x:Name="imgChoosed"
+                                       BackgroundColor="Transparent"
+                                       HeightRequest="200"/>
+
+                                <Label Text="Nome do Lanche"
+                                       TextColor="{StaticResource Black}"
+                                       FontSize="15"/>
+
+                                <Entry x:Name="lblNomeLanche"/>
+
                                 <Label Text="Ingredientes"
+                                       x:Name="lblIngredientes"
                                        TextColor="Black"/>
                                 <Editor />
                                 <Label Text="Preço"
@@ -33,8 +51,10 @@
                             
                         </Frame>
                         
-                        <Button Text="Adicionar"
-                                Clicked="SalvarLanche"/>
+                        
+
+                        <Button Text="Salvar"
+                                Clicked="EnviarLanche"/>
                     </StackLayout>
                     
                 </Grid>
