@@ -33,7 +33,7 @@
                             <StackLayout>
                                 <Image x:Name="imgChoosed"
                                        BackgroundColor="Transparent"
-                                       HeightRequest="200"/>
+                                       HeightRequest="100"/>
 
                                 <Label Text="Nome do Lanche"
                                        TextColor="{StaticResource Black}"
@@ -41,12 +41,15 @@
 
                                 <Entry x:Name="lblNomeLanche"/>
 
-                                <Label Text="Ingredientes"
-                                       x:Name="lblIngredientes"
+                                <Label Text="Ingredientes"                                       
                                        TextColor="Black"/>
-                                <Editor />
+
+                                <Editor x:Name="lblIngredientes"/>
+                                
                                 <Label Text="Preço"
                                        TextColor="Black"/>
+
+                                <Entry x:Name="lblPreco"/>
                             </StackLayout>
                             
                         </Frame>
