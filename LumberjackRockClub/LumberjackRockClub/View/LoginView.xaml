@@ -5,6 +5,7 @@
              BackgroundColor="White"             
              xmlns:mvvm="clr-namespace:LumberjackRockClub.ViewModel"
              x:Class="LumberjackRockClub.View.LoginView">
+    
     <ContentPage.BindingContext>
         <mvvm:LoginViewModel/>
     </ContentPage.BindingContext>
@@ -25,7 +26,7 @@
                        FontSize="20"/>
 
                 <Entry Margin="20,5,20,0"
-                       Text="{Binding Name}"/>
+                       Text="{Binding Email}"/>
 
                 <Label Text="Senha"
                        Margin="20,40,0,0"
@@ -38,6 +39,7 @@
                        IsPassword="True"/>
 
                 <Button Text="Login"
+                        Command="{Binding LoginCommand}"
                         Margin="20,80,20,0"
                         CornerRadius="20"
                         BackgroundColor="Black"

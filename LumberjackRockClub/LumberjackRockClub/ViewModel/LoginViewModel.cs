@@ -1,4 +1,5 @@
-﻿using LumberjackRockClub.Services;
+﻿using LumberjackRockClub.FirebaseServices;
+using LumberjackRockClub.Services;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -40,10 +41,20 @@ namespace LumberjackRockClub.ViewModel
         private async Task OpenPrincipalView()
         {
             bool verificaConexaoInternet = Conectividade.VerificaConectividade();
+            UsuarioServices _userservices = new UsuarioServices();
 
             if (verificaConexaoInternet)
             {
-                App.Current.MainPage = new View.PrincipalView();                
+                Task<bool> verificaEmailUsuario = _userservices.LoginUser(Email, Password);
+                if (await verificaEmailUsuario)
+                {
+                    App.Current.MainPage = new View.AppShell();
+                }
+                else
+                {
+                    await App.Current.MainPage.DisplayAlert("Erro", "E-mail ou Senha Incorretos", "OK");
+                }
+                               
             }
             else
             {

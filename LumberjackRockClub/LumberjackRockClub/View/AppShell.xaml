@@ -10,9 +10,10 @@
              Shell.ForegroundColor="Black"
              Shell.TabBarUnselectedColor="LightGray"
              x:Class="LumberjackRockClub.View.AppShell">
-    <FlyoutItem Title="Início">
+    
+    <FlyoutItem Title="Restaurante/Bar">
         <Tab Title="Login">
-            <ShellContent Title="Login" ContentTemplate="{DataTemplate views:LoginView}"/>
+            <ShellContent Title="Login" ContentTemplate="{DataTemplate views:CadastraLancheView}"/>
             <ShellContent Title="Login" ContentTemplate="{DataTemplate views:FacebookView}"/>
         </Tab>
 

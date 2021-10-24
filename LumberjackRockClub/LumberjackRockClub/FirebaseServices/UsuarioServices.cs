@@ -18,12 +18,25 @@ namespace LumberjackRockClub.FirebaseServices
             firebase = new FirebaseClient("https://barbearialumberjack-249aa-default-rtdb.firebaseio.com/");
         }
 
-        public async Task<bool> IsUSerExists(string name)
+        public async Task<bool> IsUSerExists(string email)
         {
             var user = (await firebase.Child("Usuarios")
                 .OnceAsync<Usuario>())
-                .Where(u => u.Object.Name == name)
+                .Where(u => u.Object.Email == email)
                 .FirstOrDefault();
+
+            return (user != null);
+        }
+
+        public async Task<bool> LoginUser(string email, string passwd)
+        {
+            //Preferences.Set("Responsabilidade", Responsabilidade);
+            var user = (await firebase.Child("Usuarios")
+                .OnceAsync<Usuario>())
+                .Where(u => u.Object.Email == email)
+                .Where(u => u.Object.Password == passwd)
+                .FirstOrDefault();
+
 
             return (user != null);
         }
