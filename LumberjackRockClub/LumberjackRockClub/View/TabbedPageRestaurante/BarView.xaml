@@ -52,11 +52,13 @@
                                 <Entry x:Name="lblPreco"/>
                             </StackLayout>
                             
-                        </Frame>
-                        
-                        
+                        </Frame>                      
 
                         <Button Text="Salvar"
+                                TextColor="White"
+                                Margin="30,0,30,0"
+                                CornerRadius="10"
+                                BackgroundColor="{StaticResource Black}"
                                 Clicked="EnviarLanche"/>
                     </StackLayout>
                     

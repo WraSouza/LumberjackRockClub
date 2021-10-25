@@ -1,10 +1,87 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"   
+             xmlns:mvvm="clr-namespace:LumberjackRockClub.ViewModel"
+             NavigationPage.HasNavigationBar="False"
              x:Class="LumberjackRockClub.View.CadastraLancheView">
-  <ContentView.Content>
-      <StackLayout>
-          <Label Text="Hello Xamarin.Forms!" />
-      </StackLayout>
-  </ContentView.Content>
-</ContentView>
+
+    <ContentPage.BindingContext>
+        <mvvm:CadastrarLancheViewModel/>
+    </ContentPage.BindingContext>
+
+        <Grid>
+        <xct:TabView TabStripPlacement="Bottom"
+                     TabStripHeight="60"                             
+                     TabIndicatorColor="Red"                        
+                     VerticalOptions="FillAndExpand">
+
+            <xct:TabViewItem Icon="burger.png"  
+                             IconSelected="burgerSelected.png"
+                             TextColorSelected="#FF6E72"
+                             Text="Lanches/Petiscos">
+                <Grid>
+                    <StackLayout>
+                        <!--<Image Source="barbearia_logo.png"
+                               HeightRequest="100"/>-->
+
+                        <Button Text="Selecionar Imagem"
+                                ImageSource="cameraicon.png"
+                                Margin="30,20,30,0"
+                                CornerRadius="10"
+                                TextColor="White"
+                                BackgroundColor="{StaticResource Black}"
+                                Command="{Binding SelecionarImagem}"/>
+                        <Frame>
+                            <StackLayout>
+                                <Image x:Name="imgChoosed"
+                                       Source="{Binding CaminhoImagem}"
+                                       BackgroundColor="Transparent"
+                                       HeightRequest="100"/>
+
+                                <Label Text="Nome do Lanche"                                       
+                                       TextColor="{StaticResource Black}"
+                                       FontSize="15"/>
+
+                                <Entry x:Name="lblNomeLanche"
+                                       Text="{Binding NomeHamburger}"/>
+
+                                <Label Text="Ingredientes"                                       
+                                       TextColor="Black"/>
+
+                                <Editor x:Name="lblIngredientes"
+                                        Text="{Binding IngredientesLanche}"/>
+
+                                <Label Text="Preço"
+                                       TextColor="Black"/>
+
+                                <Entry x:Name="lblPreco"
+                                       Text="{Binding PrecoLanche}"/>
+                            </StackLayout>
+
+                        </Frame>
+
+                        <Button Text="Salvar"
+                                TextColor="White"
+                                Margin="30,0,30,0"
+                                CornerRadius="10"
+                                BackgroundColor="{StaticResource Black}"
+                                Command="{Binding CadastrarLanche}"/>
+                    </StackLayout>
+
+                </Grid>
+            </xct:TabViewItem>
+
+
+            <xct:TabViewItem Icon="guitar.png"
+                             TextColorSelected="#FF6E72"
+                             IconSelected="guitarSelected.png"
+                             Text="Shows">
+                <StackLayout>
+                    <Label Text="Bem-Vindos Aos Show da Semana"/>
+                </StackLayout>
+            </xct:TabViewItem>
+
+        </xct:TabView>
+    </Grid>
+</ContentPage>

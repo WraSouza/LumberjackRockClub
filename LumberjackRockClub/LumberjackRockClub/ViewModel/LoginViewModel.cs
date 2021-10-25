@@ -13,6 +13,8 @@ namespace LumberjackRockClub.ViewModel
         private string username;
         private string password;
         private string email;
+        private bool _Result;
+        private bool _IsBusy;
         public Command LoginCommand { get; set; }
 
         public string Name
@@ -33,6 +35,34 @@ namespace LumberjackRockClub.ViewModel
             set {  email = value; OnPropertyChanged();}
         }
 
+        //Método para verificar se o login foi realizado com sucesso
+        public bool Result
+        {
+            get
+            {
+                return this._IsBusy;
+            }
+            set
+            {
+                _IsBusy = value;
+                OnPropertyChanged();
+            }
+        }
+
+        //Método para verificar se o login está sendo realizado para evitar concorrência
+        public bool IsBusy
+        {
+            get
+            {
+                return this._Result;
+            }
+            set
+            {
+                _Result = value;
+                OnPropertyChanged();
+            }
+        }
+
         public LoginViewModel()
         {
             LoginCommand = new Command(async () => await OpenPrincipalView());
@@ -40,26 +70,42 @@ namespace LumberjackRockClub.ViewModel
 
         private async Task OpenPrincipalView()
         {
-            bool verificaConexaoInternet = Conectividade.VerificaConectividade();
-            UsuarioServices _userservices = new UsuarioServices();
+            if (IsBusy)
+                return;
 
-            if (verificaConexaoInternet)
+            try
             {
-                Task<bool> verificaEmailUsuario = _userservices.LoginUser(Email, Password);
-                if (await verificaEmailUsuario)
+                bool verificaConexaoInternet = Conectividade.VerificaConectividade();
+                var _userservices = new UsuarioServices();
+
+                if (verificaConexaoInternet)
                 {
-                    App.Current.MainPage = new View.AppShell();
+                    IsBusy = true;
+                    Result = await _userservices.LoginUser(Email, Password);
+                    if (Result)
+                    {
+                        Application.Current.MainPage = new View.AppShell();
+                    }
+                    else
+                    {
+                        await App.Current.MainPage.DisplayAlert("Erro", "E-mail ou Senha Incorretos", "OK");
+                    }
+
                 }
                 else
                 {
-                    await App.Current.MainPage.DisplayAlert("Erro", "E-mail ou Senha Incorretos", "OK");
+                    await App.Current.MainPage.DisplayAlert("Erro", "Sem Conexão de Rede.Verifique Sua Conexão de Internet e Tente Novamente", "OK");
                 }
-                               
             }
-            else
+            catch (Exception ex)
             {
-                await App.Current.MainPage.DisplayAlert("Erro", "Sem Conexão de Rede.Verifique Sua Conexão de Internet e Tente Novamente", "OK");
+                await Application.Current.MainPage.DisplayAlert("Erro", ex.Message, "OK");
             }
+            finally
+            {
+                IsBusy = false;
+            }
+            
         }
 
     }
