@@ -19,9 +19,7 @@ namespace LumberjackRockClub.View
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CadastraLancheView : ContentPage
-    {
-        MediaFile file;
-        FirebaseClient firebase;
+    {       
         public CadastraLancheView()
         {
             InitializeComponent();
@@ -50,22 +48,22 @@ namespace LumberjackRockClub.View
         //    //}
         //}
 
-        private async Task<string> StoreImages(Stream imageStream)
-        {
-            string nomeLanche = lblNomeLanche.Text;
-            string imgurl = null;
-            string storageImage = null;
-            if (nomeLanche != null)
-            {
-                storageImage = await new FirebaseStorage("barbearialumberjack-249aa.appspot.com")
-              .Child("Lanches")
-              .Child(nomeLanche + ".jpg")
-              .PutAsync(imageStream);
-                imgurl = storageImage;
+        //private async Task<string> StoreImages(Stream imageStream)
+        //{
+        //    string nomeLanche = lblNomeLanche.Text;
+        //    string imgurl = null;
+        //    string storageImage = null;
+        //    if (nomeLanche != null)
+        //    {
+        //        storageImage = await new FirebaseStorage("barbearialumberjack-249aa.appspot.com")
+        //      .Child("Lanches")
+        //      .Child(nomeLanche + ".jpg")
+        //      .PutAsync(imageStream);
+        //        imgurl = storageImage;
 
-            }
-            return imgurl;
-        }
+        //    }
+        //    return imgurl;
+        //}
 
         //private async void EnviarLanche(object sender, EventArgs e)
         //{

@@ -26,7 +26,7 @@ namespace LumberjackRockClub.ViewModel
 
         private async Task OpenRestaurantView()
         {
-            Application.Current.MainPage = new View.TabbedPageRestaurante.MenuRestauranteView();
+             Application.Current.MainPage = new View.TabbedPageRestaurante.MenuRestauranteView();
             //await Navigation.PushAsync(new View.TabbedPageRestaurante.MenuRestauranteView());
         }
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LumberjackRockClub.FirebaseServices;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,13 @@ namespace LumberjackRockClub.View
         public VisualizarLanchesView()
         {
             InitializeComponent();
+        }
+
+        protected async override void OnAppearing()
+        {
+            //base.OnAppearing();
+            LancheService lanche = new LancheService();
+            collectionview.ItemsSource = await lanche.RetornaHamburgers();
         }
     }
 }

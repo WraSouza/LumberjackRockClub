@@ -10,7 +10,57 @@
         <mvvm:CadastrarLancheViewModel/>
     </ContentPage.BindingContext>
 
-        <Grid>
+    <Grid>
+        <StackLayout>
+            <!--<Image Source="barbearia_logo.png"
+                               HeightRequest="100"/>-->
+
+            <Button Text="Selecionar Imagem"
+                                ImageSource="cameraicon.png"
+                                Margin="30,20,30,0"
+                                CornerRadius="10"
+                                TextColor="White"
+                                BackgroundColor="{StaticResource Black}"
+                                Command="{Binding SelecionarImagem}"/>
+            <Frame>
+                <StackLayout>
+                    <Image Source="{Binding CaminhoImagem}" 
+                                       BackgroundColor="Transparent"
+                                       HeightRequest="100"/>
+
+                    <Label Text="Nome do Lanche"                                       
+                                       TextColor="{StaticResource Black}"
+                                       FontSize="15"/>
+
+                    <Entry x:Name="lblNomeLanche"
+                                       Text="{Binding NomeHamburger}"/>
+
+                    <Label Text="Ingredientes"                                       
+                                       TextColor="Black"/>
+
+                    <Editor x:Name="lblIngredientes"
+                                        Text="{Binding IngredientesLanche}"/>
+
+                    <Label Text="Preço"
+                                       TextColor="Black"/>
+
+                    <Entry x:Name="lblPreco"
+                                       Text="{Binding PrecoLanche}"/>
+                </StackLayout>
+
+            </Frame>
+
+            <Button Text="Salvar"
+                    TextColor="White"
+                    Margin="30,0,30,0"
+                    CornerRadius="10"
+                    BackgroundColor="{StaticResource Black}"
+                    Command="{Binding CadastrarLanche}"/>
+        </StackLayout>
+
+    </Grid>
+
+    <!--<Grid>
         <xct:TabView TabStripPlacement="Bottom"
                      TabStripHeight="60"                             
                      TabIndicatorColor="Red"                        
@@ -22,8 +72,8 @@
                              Text="Lanches/Petiscos">
                 <Grid>
                     <StackLayout>
-                        <!--<Image Source="barbearia_logo.png"
-                               HeightRequest="100"/>-->
+                        --><!--<Image Source="barbearia_logo.png"
+                               HeightRequest="100"/>--><!--
 
                         <Button Text="Selecionar Imagem"
                                 ImageSource="cameraicon.png"
@@ -34,8 +84,7 @@
                                 Command="{Binding SelecionarImagem}"/>
                         <Frame>
                             <StackLayout>
-                                <Image x:Name="imgChoosed"
-                                       Source="{Binding CaminhoImagem}"
+                                <Image Source="{Binding CaminhoImagem}" 
                                        BackgroundColor="Transparent"
                                        HeightRequest="100"/>
 
@@ -82,6 +131,6 @@
                 </StackLayout>
             </xct:TabViewItem>
 
-        </xct:TabView>
-    </Grid>
+        </xct:TabView>--><!--
+    </Grid>-->
 </ContentPage>

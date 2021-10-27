@@ -4,7 +4,7 @@
              xmlns:views="clr-namespace:LumberjackRockClub.View"
              Shell.TabBarBackgroundColor="White"
              Shell.BackgroundColor="White"
-             Shell.TitleColor="Black"
+             Shell.TitleColor="Black"       
              Shell.DisabledColor="Gray"
              Shell.TabBarTitleColor="Black" 
              Shell.ForegroundColor="Black"
@@ -12,15 +12,18 @@
              Title="Barbearia Lumberjack"
              x:Class="LumberjackRockClub.View.AppShell">
     
-    <FlyoutItem Title="Restaurante/Bar"
+    <FlyoutItem Title="Cadastrar Lanches/Shows"
                 Icon="beer.png">
-        <Tab Title="Bar">
+        <Tab Title="Lanches/Petiscos"
+             Icon="burger.png">
             <ShellContent Title="Cadastrar Lanche" ContentTemplate="{DataTemplate views:CadastraLancheView}"/>
             <ShellContent Title="Visualizar Lanches" ContentTemplate="{DataTemplate views:VisualizarLanchesView}"/>
         </Tab>
 
-        <Tab Title="Barbearia">
-            <ShellContent ContentTemplate="{DataTemplate views:BarberSchedulesView}"/>
+        <Tab Title="Show"
+             Icon="guitar.png">
+            <ShellContent ContentTemplate="{DataTemplate views:CadastrarShowView}"/>
+            <ShellContent ContentTemplate="{DataTemplate views:VisualizarShowsView}"/>
         </Tab>
         
     </FlyoutItem>

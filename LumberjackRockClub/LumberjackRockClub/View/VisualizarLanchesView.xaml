@@ -1,12 +1,32 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mvvm="clr-namespace:LumberjackRockClub.ViewModel"
              x:Class="LumberjackRockClub.View.VisualizarLanchesView">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+
+    <ContentPage.BindingContext>
+        <mvvm:CadastrarLancheViewModel/>
+    </ContentPage.BindingContext>
+    
+    <CollectionView x:Name="collectionview">
+        <CollectionView.ItemsLayout>
+            <GridItemsLayout Span="2" Orientation="Vertical"/>
+        </CollectionView.ItemsLayout>
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <StackLayout>
+                    <Image Source="{Binding CaminhoImagem}"
+                           HeightRequest="150"/>
+                    <Label Text="{Binding NomeHamburger}"
+                           TextColor="Black"
+                           FontSize="20"
+                           VerticalTextAlignment="Center"/>
+                    <Label Text="{Binding Ingredientes}"/>
+                    <Label Text="Preço"
+                           TextColor="Black"/>
+                    <Label Text="{Binding Preco}"/>
+                </StackLayout>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
 </ContentPage>

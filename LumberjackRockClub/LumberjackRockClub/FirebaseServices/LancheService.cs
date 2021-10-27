@@ -3,6 +3,7 @@ using Firebase.Database.Query;
 using LumberjackRockClub.Model;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,6 +16,18 @@ namespace LumberjackRockClub.FirebaseServices
         public LancheService()
         {
             firebase = new FirebaseClient("https://barbearialumberjack-249aa-default-rtdb.firebaseio.com/");
+        }
+        
+        public async Task<List<Hamburger>> RetornaHamburgers()
+        {
+            return (await firebase.Child("Lanches")
+                .OnceAsync<Hamburger>()).Select(item => new Hamburger
+                {
+                    NomeHamburger = item.Object.NomeHamburger,
+                    Ingredientes = item.Object.Ingredientes,
+                    Preco = item.Object.Preco,
+                    CaminhoImagem = item.Object.CaminhoImagem
+                }).ToList();
         }
 
         public async Task<bool> EnviarLanche(string nomeHamburger, string ingredientesHamburger, string precoHamburger, string referenciaImage)
