@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="Barbearia Lumberjack"
+             x:Class="LumberjackRockClub.View.CadastrosView">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="CenterAndExpand"
+                     VerticalOptions="Center">
+            <Button Text="Cadastrar Lanche"
+                    TextColor="White"
+                    BackgroundColor="{StaticResource Black}"/>
+
+            <Button Text="Cadastrar Show"
+                    TextColor="White"
+                    BackgroundColor="{StaticResource Black}"/>
+
+            <Button Text="Cadastrar Almoço"
+                    TextColor="White"
+                    BackgroundColor="{StaticResource Black}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

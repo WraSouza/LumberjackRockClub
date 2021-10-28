@@ -2,30 +2,48 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:mvvm="clr-namespace:LumberjackRockClub.ViewModel"
+             Title="Lanches"
              x:Class="LumberjackRockClub.View.VisualizarLanchesView">
 
     <ContentPage.BindingContext>
         <mvvm:CadastrarLancheViewModel/>
     </ContentPage.BindingContext>
-    
-    <CollectionView x:Name="collectionview">
+
+    <CollectionView x:Name="collectionview" Margin="10,5,10,0">
         <CollectionView.ItemsLayout>
-            <GridItemsLayout Span="2" Orientation="Vertical"/>
+            <GridItemsLayout Span="2" Orientation="Vertical" HorizontalItemSpacing="10"/>
         </CollectionView.ItemsLayout>
         <CollectionView.ItemTemplate>
             <DataTemplate>
-                <StackLayout>
-                    <Image Source="{Binding CaminhoImagem}"
-                           HeightRequest="150"/>
-                    <Label Text="{Binding NomeHamburger}"
-                           TextColor="Black"
-                           FontSize="20"
-                           VerticalTextAlignment="Center"/>
-                    <Label Text="{Binding Ingredientes}"/>
-                    <Label Text="Preço"
-                           TextColor="Black"/>
-                    <Label Text="{Binding Preco}"/>
-                </StackLayout>
+                <Frame CornerRadius="10" 
+                       HasShadow="False" 
+                       BorderColor="Gainsboro"
+                       IsClippedToBounds="True">
+                    
+                    <StackLayout HorizontalOptions="CenterAndExpand">
+                        <Image Source="{Binding CaminhoImagem}"
+                               HeightRequest="100"/>
+                        
+                        <Label Text="{Binding NomeHamburger}"
+                               FontAttributes="Bold"
+                               FontFamily="MontserratRegular"
+                               TextColor="Black"
+                               FontSize="18"
+                               VerticalTextAlignment="Center"/>
+                        
+                        <Label Text="{Binding Ingredientes}"                               
+                               TextColor="Black"
+                               FontSize="13"
+                               FontFamily="MontserratRegular"/>
+                        
+                        <Label Text="Preço"
+                               FontFamily="MontserratRegular"
+                               TextColor="Black"/>
+                        
+                        <Label Text="{Binding Preco}"
+                               FontFamily="MontserratRegular"/>
+                    </StackLayout>
+                </Frame>                
             </DataTemplate>
         </CollectionView.ItemTemplate>
     </CollectionView>

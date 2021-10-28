@@ -11,18 +11,31 @@
              Shell.UnselectedColor="LightGray"       
              Title="Barbearia Lumberjack"
              x:Class="LumberjackRockClub.View.AppShell">
+
+    <FlyoutItem Title="Cadastrar">
+        <Tab Title="Almoço" Icon="restaurant.png">
+            <ShellContent Title="Cadastrar Lanche" ContentTemplate="{DataTemplate views:CadastraAlmocoView}"/>
+        </Tab>
+
+        <Tab Title="Lanche" Icon="burger.png">
+            <ShellContent Title="Cadastrar Lanche" ContentTemplate="{DataTemplate views:CadastraLancheView}"/>
+        </Tab>
+
+        <Tab Title="Show" Icon="guitar.png">
+            <ShellContent ContentTemplate="{DataTemplate views:CadastrarShowView}"/>
+        </Tab>
+        
+    </FlyoutItem>
     
-    <FlyoutItem Title="Cadastrar Lanches/Shows"
+    <FlyoutItem Title="Bar/Restaurante"
                 Icon="beer.png">
         <Tab Title="Lanches/Petiscos"
-             Icon="burger.png">
-            <ShellContent Title="Cadastrar Lanche" ContentTemplate="{DataTemplate views:CadastraLancheView}"/>
+             Icon="burger.png">            
             <ShellContent Title="Visualizar Lanches" ContentTemplate="{DataTemplate views:VisualizarLanchesView}"/>
         </Tab>
 
         <Tab Title="Show"
-             Icon="guitar.png">
-            <ShellContent ContentTemplate="{DataTemplate views:CadastrarShowView}"/>
+             Icon="guitar.png">            
             <ShellContent ContentTemplate="{DataTemplate views:VisualizarShowsView}"/>
         </Tab>
         
