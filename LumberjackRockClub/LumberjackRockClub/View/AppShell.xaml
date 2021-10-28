@@ -1,49 +1,47 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<Shell xmlns="http://xamarin.com/schemas/2014/forms" 
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:views="clr-namespace:LumberjackRockClub.View"
-             Shell.TabBarBackgroundColor="White"
-             Shell.BackgroundColor="White"
-             Shell.TitleColor="Black"       
-             Shell.DisabledColor="Gray"
-             Shell.TabBarTitleColor="Black" 
-             Shell.ForegroundColor="Black"
-             Shell.UnselectedColor="LightGray"       
-             Title="Barbearia Lumberjack"
-             x:Class="LumberjackRockClub.View.AppShell">
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="LumberjackRockClub.View.AppShell"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:LumberjackRockClub.View"
+    Title="Barbearia Lumberjack"
+    Shell.BackgroundColor="White"
+    Shell.DisabledColor="Gray"
+    Shell.ForegroundColor="Black"
+    Shell.NavBarHasShadow="False"
+    Shell.TabBarBackgroundColor="White"
+    Shell.TabBarTitleColor="Black"
+    Shell.TitleColor="Black"
+    Shell.UnselectedColor="LightGray">
 
-    <FlyoutItem Title="Cadastrar">
-        <Tab Title="Almoço" Icon="restaurant.png">
-            <ShellContent Title="Cadastrar Lanche" ContentTemplate="{DataTemplate views:CadastraAlmocoView}"/>
+    <FlyoutItem Title="Cadastrar" Icon="register.png">
+        <Tab Title="Almoço" Icon="dish.png">
+            <ShellContent Title="Cadastrar Lanche" ContentTemplate="{DataTemplate views:CadastraAlmocoView}" />
         </Tab>
 
         <Tab Title="Lanche" Icon="burger.png">
-            <ShellContent Title="Cadastrar Lanche" ContentTemplate="{DataTemplate views:CadastraLancheView}"/>
+            <ShellContent Title="Cadastrar Lanche" ContentTemplate="{DataTemplate views:CadastraLancheView}" />
         </Tab>
 
         <Tab Title="Show" Icon="guitar.png">
-            <ShellContent ContentTemplate="{DataTemplate views:CadastrarShowView}"/>
-        </Tab>
-        
-    </FlyoutItem>
-    
-    <FlyoutItem Title="Bar/Restaurante"
-                Icon="beer.png">
-        <Tab Title="Lanches/Petiscos"
-             Icon="burger.png">            
-            <ShellContent Title="Visualizar Lanches" ContentTemplate="{DataTemplate views:VisualizarLanchesView}"/>
+            <ShellContent ContentTemplate="{DataTemplate views:CadastrarShowView}" />
         </Tab>
 
-        <Tab Title="Show"
-             Icon="guitar.png">            
-            <ShellContent ContentTemplate="{DataTemplate views:VisualizarShowsView}"/>
-        </Tab>
-        
     </FlyoutItem>
 
-    <FlyoutItem Title="Barbearia"
-                Icon="barberpole.png">
-        <ShellContent ContentTemplate="{DataTemplate views:InstagramView}"/>
+    <FlyoutItem Title="Bar/Restaurante" Icon="beer.png">
+        <Tab Title="Lanches/Petiscos" Icon="burger.png">
+            <ShellContent Title="Visualizar Lanches" ContentTemplate="{DataTemplate views:VisualizarLanchesView}" />
+        </Tab>
+
+        <Tab Title="Show" Icon="guitar.png">
+            <ShellContent ContentTemplate="{DataTemplate views:VisualizarShowsView}" />
+        </Tab>
+
     </FlyoutItem>
-    
+
+    <FlyoutItem Title="Barbearia" Icon="barberpole.png">
+        <ShellContent ContentTemplate="{DataTemplate views:InstagramView}" />
+    </FlyoutItem>
+
 </Shell>

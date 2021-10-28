@@ -136,6 +136,7 @@
     <Content Include="beer.png" />
     <Content Include="burger.png" />
     <Content Include="burgerSelected.png" />
+    <Content Include="dish.png" />
     <Content Include="facebook.png" />
     <Content Include="guitar.png" />
     <Content Include="guitarSelected.png" />
@@ -143,6 +144,7 @@
     <Content Include="login.png" />
     <Content Include="logout.png" />
     <Content Include="Properties\Default.rd.xml" />
+    <Content Include="register.png" />
     <Content Include="restaurant.png" />
     <Content Include="schedule.png" />
   </ItemGroup>

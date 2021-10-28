@@ -11,7 +11,7 @@
 
     <CollectionView x:Name="collectionview" Margin="10,5,10,0">
         <CollectionView.ItemsLayout>
-            <GridItemsLayout Span="2" Orientation="Vertical" HorizontalItemSpacing="10"/>
+            <GridItemsLayout Span="2" Orientation="Vertical" VerticalItemSpacing="5" HorizontalItemSpacing="10"/>
         </CollectionView.ItemsLayout>
         <CollectionView.ItemTemplate>
             <DataTemplate>

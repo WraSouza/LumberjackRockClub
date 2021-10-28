@@ -1,136 +1,62 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"   
-             xmlns:mvvm="clr-namespace:LumberjackRockClub.ViewModel"
-             NavigationPage.HasNavigationBar="False"
-             x:Class="LumberjackRockClub.View.CadastraLancheView">
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="LumberjackRockClub.View.CadastraLancheView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:mvvm="clr-namespace:LumberjackRockClub.ViewModel"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    Title="Cadastrar Lanche"
+    NavigationPage.HasNavigationBar="False">
 
     <ContentPage.BindingContext>
-        <mvvm:CadastrarLancheViewModel/>
+        <mvvm:CadastrarLancheViewModel />
     </ContentPage.BindingContext>
 
     <Grid>
         <StackLayout>
-            <!--<Image Source="barbearia_logo.png"
-                               HeightRequest="100"/>-->
 
-            <Button Text="Selecionar Imagem"
-                                ImageSource="cameraicon.png"
-                                Margin="30,20,30,0"
-                                CornerRadius="10"
-                                TextColor="White"
-                                BackgroundColor="{StaticResource Black}"
-                                Command="{Binding SelecionarImagem}"/>
+            <Button
+                Margin="30,20,30,0"
+                BackgroundColor="{StaticResource Black}"
+                Command="{Binding SelecionarImagem}"
+                CornerRadius="10"
+                ImageSource="cameraicon.png"
+                Text="Selecionar Imagem"
+                TextColor="White" />
             <Frame>
                 <StackLayout>
-                    <Image Source="{Binding CaminhoImagem}" 
-                                       BackgroundColor="Transparent"
-                                       HeightRequest="100"/>
+                    <Image
+                        BackgroundColor="Transparent"
+                        HeightRequest="100"
+                        Source="{Binding CaminhoImagem}" />
 
-                    <Label Text="Nome do Lanche"                                       
-                                       TextColor="{StaticResource Black}"
-                                       FontSize="15"/>
+                    <Label
+                        FontSize="15"
+                        Text="Nome do Lanche"
+                        TextColor="{StaticResource Black}" />
 
-                    <Entry x:Name="lblNomeLanche"
-                                       Text="{Binding NomeHamburger}"/>
+                    <Entry x:Name="lblNomeLanche" Text="{Binding NomeHamburger}" />
 
-                    <Label Text="Ingredientes"                                       
-                                       TextColor="Black"/>
+                    <Label Text="Ingredientes" TextColor="Black" />
 
-                    <Editor x:Name="lblIngredientes"
-                                        Text="{Binding IngredientesLanche}"/>
+                    <Editor x:Name="lblIngredientes" Text="{Binding IngredientesLanche}" />
 
-                    <Label Text="Preço"
-                                       TextColor="Black"/>
+                    <Label Text="Preço" TextColor="Black" />
 
-                    <Entry x:Name="lblPreco"
-                                       Text="{Binding PrecoLanche}"/>
+                    <Entry x:Name="lblPreco" Text="{Binding PrecoLanche}" />
                 </StackLayout>
 
             </Frame>
 
-            <Button Text="Salvar"
-                    TextColor="White"
-                    Margin="30,0,30,0"
-                    CornerRadius="10"
-                    BackgroundColor="{StaticResource Black}"
-                    Command="{Binding CadastrarLanche}"/>
+            <Button
+                Margin="30,0,30,0"
+                BackgroundColor="{StaticResource Black}"
+                Command="{Binding CadastrarLanche}"
+                CornerRadius="10"
+                Text="Salvar"
+                TextColor="White" />
         </StackLayout>
 
     </Grid>
 
-    <!--<Grid>
-        <xct:TabView TabStripPlacement="Bottom"
-                     TabStripHeight="60"                             
-                     TabIndicatorColor="Red"                        
-                     VerticalOptions="FillAndExpand">
-
-            <xct:TabViewItem Icon="burger.png"  
-                             IconSelected="burgerSelected.png"
-                             TextColorSelected="#FF6E72"
-                             Text="Lanches/Petiscos">
-                <Grid>
-                    <StackLayout>
-                        --><!--<Image Source="barbearia_logo.png"
-                               HeightRequest="100"/>--><!--
-
-                        <Button Text="Selecionar Imagem"
-                                ImageSource="cameraicon.png"
-                                Margin="30,20,30,0"
-                                CornerRadius="10"
-                                TextColor="White"
-                                BackgroundColor="{StaticResource Black}"
-                                Command="{Binding SelecionarImagem}"/>
-                        <Frame>
-                            <StackLayout>
-                                <Image Source="{Binding CaminhoImagem}" 
-                                       BackgroundColor="Transparent"
-                                       HeightRequest="100"/>
-
-                                <Label Text="Nome do Lanche"                                       
-                                       TextColor="{StaticResource Black}"
-                                       FontSize="15"/>
-
-                                <Entry x:Name="lblNomeLanche"
-                                       Text="{Binding NomeHamburger}"/>
-
-                                <Label Text="Ingredientes"                                       
-                                       TextColor="Black"/>
-
-                                <Editor x:Name="lblIngredientes"
-                                        Text="{Binding IngredientesLanche}"/>
-
-                                <Label Text="Preço"
-                                       TextColor="Black"/>
-
-                                <Entry x:Name="lblPreco"
-                                       Text="{Binding PrecoLanche}"/>
-                            </StackLayout>
-
-                        </Frame>
-
-                        <Button Text="Salvar"
-                                TextColor="White"
-                                Margin="30,0,30,0"
-                                CornerRadius="10"
-                                BackgroundColor="{StaticResource Black}"
-                                Command="{Binding CadastrarLanche}"/>
-                    </StackLayout>
-
-                </Grid>
-            </xct:TabViewItem>
-
-
-            <xct:TabViewItem Icon="guitar.png"
-                             TextColorSelected="#FF6E72"
-                             IconSelected="guitarSelected.png"
-                             Text="Shows">
-                <StackLayout>
-                    <Label Text="Bem-Vindos Aos Show da Semana"/>
-                </StackLayout>
-            </xct:TabViewItem>
-
-        </xct:TabView>--><!--
-    </Grid>-->
 </ContentPage>
