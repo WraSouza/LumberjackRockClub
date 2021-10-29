@@ -1,6 +1,7 @@
 ﻿using Firebase.Database;
 using Firebase.Database.Query;
 using Firebase.Storage;
+using LumberjackRockClub.FirebaseServices;
 using LumberjackRockClub.Model;
 using Plugin.Media;
 using Plugin.Media.Abstractions;
@@ -19,69 +20,19 @@ namespace LumberjackRockClub.View.TabbedPageRestaurante
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class BarView : ContentPage
-    {
-        MediaFile file;
-        FirebaseClient firebase;    
+    {    
         
         public BarView()
         {
             InitializeComponent();
         }
-        private async void SalvarLanche(object sender, EventArgs e)
+
+        protected async override void OnAppearing()
         {
-            await CrossMedia.Current.Initialize();
-            try
-            {
-                file = await Plugin.Media.CrossMedia.Current.PickPhotoAsync(new Plugin.Media.Abstractions.PickMediaOptions
-                {
-                    PhotoSize = Plugin.Media.Abstractions.PhotoSize.Medium
-                });
-                if (file == null)
-                    return;
-                imgChoosed.Source = ImageSource.FromStream(() =>
-                {
-                    var imageStram = file.GetStream();
-                    return imageStram;
-                });
-                await StoreImages(file.GetStream());
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex.Message);
-            }
+            //base.OnAppearing();
+            LancheService lanche = new LancheService();
+            collectionview.ItemsSource = await lanche.RetornaHamburgers();
         }
-
-        private async Task<string> StoreImages(Stream imageStream)
-        {
-            string nomeLanche = lblNomeLanche.Text;
-            string imgurl = null;
-            string storageImage = null;
-            if (nomeLanche != null)
-            {
-                storageImage = await new FirebaseStorage("barbearialumberjack-249aa.appspot.com")
-              .Child("Lanches")
-              .Child(nomeLanche + ".jpg")
-              .PutAsync(imageStream);
-               imgurl = storageImage;
-               
-            }
-            return imgurl;            
-        }
-
-        private async void EnviarLanche(object sender, EventArgs e)
-        {
-
-            var imagemURL = await StoreImages(file.GetStream());            
-
-            firebase = new FirebaseClient("https://barbearialumberjack-249aa-default-rtdb.firebaseio.com/");
-            await firebase.Child("Lanches")
-                    .PostAsync(new Hamburger()
-                    {
-                        NomeHamburger = lblNomeLanche.Text,
-                        Ingredientes = lblIngredientes.Text,
-                        Preco = lblPreco.Text,
-                        CaminhoImagem = imagemURL.ToString()
-                    });  
-        }
+        
     }
 }

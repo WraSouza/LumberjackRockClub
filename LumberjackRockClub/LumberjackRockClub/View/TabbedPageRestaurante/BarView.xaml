@@ -4,11 +4,16 @@
              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              Title="Barbearia Lumberjack"
              BackgroundColor="White"
+             xmlns:mvvm="clr-namespace:LumberjackRockClub.ViewModel"
              xmlns:views="clr-namespace:LumberjackRockClub.View.TabbedPageRestaurante"
              x:Class="LumberjackRockClub.View.TabbedPageRestaurante.BarView">
-    
 
-        <Grid>
+    <ContentPage.BindingContext>
+        <mvvm:CadastrarLancheViewModel/>
+    </ContentPage.BindingContext>
+
+
+    <Grid>
             <xct:TabView TabStripPlacement="Bottom"
                          TabStripHeight="60"                             
                          TabIndicatorColor="Red"                        
@@ -19,49 +24,43 @@
                              TextColorSelected="#FF6E72"
                              Text="Lanches/Petiscos">
                 <Grid>
-                    <StackLayout>
-                        <Image Source="barbearia_logo.png"
+                    <CollectionView x:Name="collectionview" Margin="10,5,10,0">
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Span="2" Orientation="Vertical" VerticalItemSpacing="5" HorizontalItemSpacing="10"/>
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Frame CornerRadius="10" 
+                       HasShadow="False" 
+                       BorderColor="Gainsboro"
+                       IsClippedToBounds="True">
+
+                                    <StackLayout HorizontalOptions="CenterAndExpand">
+                                        <Image Source="{Binding CaminhoImagem}"
                                HeightRequest="100"/>
-                        
-                        <Button Text="Selecionar Imagem"
-                                Margin="30,0,30,0"
-                                CornerRadius="10"
-                                TextColor="White"
-                                BackgroundColor="{StaticResource Black}"
-                                Clicked="SalvarLanche"/>
-                        <Frame>
-                            <StackLayout>
-                                <Image x:Name="imgChoosed"
-                                       BackgroundColor="Transparent"
-                                       HeightRequest="100"/>
 
-                                <Label Text="Nome do Lanche"
-                                       TextColor="{StaticResource Black}"
-                                       FontSize="15"/>
+                                        <Label Text="{Binding NomeHamburger}"                               
+                               FontFamily="MontserratMedium"
+                               TextColor="Black"
+                               FontSize="18"
+                               VerticalTextAlignment="Center"/>
 
-                                <Entry x:Name="lblNomeLanche"/>
+                                        <Label Text="{Binding Ingredientes}"                               
+                               TextColor="Black"
+                               FontSize="13"
+                               FontFamily="MontserratRegular"/>
 
-                                <Label Text="Ingredientes"                                       
-                                       TextColor="Black"/>
+                                        <Label Text="Preço"                               
+                               FontFamily="MontserratMedium"
+                               TextColor="Black"/>
 
-                                <Editor x:Name="lblIngredientes"/>
-                                
-                                <Label Text="Preço"
-                                       TextColor="Black"/>
-
-                                <Entry x:Name="lblPreco"/>
-                            </StackLayout>
-                            
-                        </Frame>                      
-
-                        <Button Text="Salvar"
-                                TextColor="White"
-                                Margin="30,0,30,0"
-                                CornerRadius="10"
-                                BackgroundColor="{StaticResource Black}"
-                                Clicked="EnviarLanche"/>
-                    </StackLayout>
-                    
+                                        <Label Text="{Binding Preco}"                               
+                               FontFamily="MontserratRegular"/>
+                                    </StackLayout>
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>                   
                 </Grid>
             </xct:TabViewItem>
 

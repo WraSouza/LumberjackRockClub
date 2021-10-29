@@ -24,9 +24,8 @@
                         <Image Source="{Binding CaminhoImagem}"
                                HeightRequest="100"/>
                         
-                        <Label Text="{Binding NomeHamburger}"
-                               FontAttributes="Bold"
-                               FontFamily="MontserratRegular"
+                        <Label Text="{Binding NomeHamburger}"                               
+                               FontFamily="MontserratMedium"
                                TextColor="Black"
                                FontSize="18"
                                VerticalTextAlignment="Center"/>
@@ -36,11 +35,11 @@
                                FontSize="13"
                                FontFamily="MontserratRegular"/>
                         
-                        <Label Text="Preço"
-                               FontFamily="MontserratRegular"
+                        <Label Text="Preço"                               
+                               FontFamily="MontserratMedium"
                                TextColor="Black"/>
                         
-                        <Label Text="{Binding Preco}"
+                        <Label Text="{Binding Preco}"                               
                                FontFamily="MontserratRegular"/>
                     </StackLayout>
                 </Frame>                
