@@ -1,65 +1,73 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             NavigationPage.HasNavigationBar="False"
-             xmlns:mvvm="clr-namespace:LumberjackRockClub.ViewModel"
-             BackgroundColor="White"
-             x:Class="LumberjackRockClub.View.VisitorsView">
+<ContentPage
+    x:Class="LumberjackRockClub.View.VisitorsView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:mvvm="clr-namespace:LumberjackRockClub.ViewModel"
+    BackgroundColor="White"
+    NavigationPage.HasNavigationBar="False">
     <ContentPage.BindingContext>
-        <mvvm:VisitorsViewModel/>
+        <mvvm:VisitorsViewModel />
     </ContentPage.BindingContext>
-    
+
     <ContentPage.Content>
         <Grid>
             <StackLayout>
-                <Image Source="barbearia_logo.png"
-                       Margin="0,50,0,0"
-                       VerticalOptions="Start"
-                       HorizontalOptions="Center"
-                       HeightRequest="150"/>
+                <Image
+                    Margin="0,50,0,0"
+                    HeightRequest="150"
+                    HorizontalOptions="Center"
+                    Source="barbearia_logo.png"
+                    VerticalOptions="Start" />
 
                 <Frame HorizontalOptions="Center">
                     <StackLayout>
-                        <Image Source="barberpole.png"
-                               Margin="0,20,0,0"
-                               HeightRequest="60"/>
+                        <Image
+                            Margin="0,20,0,0"
+                            HeightRequest="60"
+                            Source="barberpole.png" />
 
-                        <Label Text="Barbearia"
-                               HorizontalTextAlignment="Center"
-                               TextColor="Black"
-                               FontSize="30"/>
+                        <Label
+                            FontSize="30"
+                            HorizontalTextAlignment="Center"
+                            Text="Barbearia"
+                            TextColor="Black" />
 
-                        <Button Text="Marcar Horário"
-                                Command="{Binding OpenBarber}"
-                                BackgroundColor="White"
-                                VerticalOptions="Center"
-                                HorizontalOptions="Center"
-                                ImageSource="schedule.png"/>
+                        <Button
+                            BackgroundColor="White"
+                            Command="{Binding OpenBarber}"
+                            HorizontalOptions="Center"
+                            ImageSource="schedule.png"
+                            Text="Marcar Horário"
+                            VerticalOptions="Center" />
                     </StackLayout>
-                    
+
                 </Frame>
 
                 <Frame HorizontalOptions="Center">
                     <StackLayout>
-                        <Image Source="restaurant.png"
-                               Margin="0,20,0,0"
-                               HeightRequest="60"/>
+                        <Image
+                            Margin="0,20,0,0"
+                            HeightRequest="60"
+                            Source="restaurant.png" />
 
-                        <Label Text="Restaurante"
-                               HorizontalTextAlignment="Center"
-                               TextColor="Black"
-                               FontSize="30"/>
+                        <Label
+                            FontSize="30"
+                            HorizontalTextAlignment="Center"
+                            Text="Restaurante"
+                            TextColor="Black" />
 
-                        <Button Text="Venha Conhecer"
-                                Command="{Binding OpenRestaurant}"
-                                BackgroundColor="White"
-                                VerticalOptions="Center"
-                                HorizontalOptions="Center"
-                                ImageSource="login.png"/>
+                        <Button
+                            BackgroundColor="White"
+                            Command="{Binding OpenRestaurant}"
+                            HorizontalOptions="Center"
+                            ImageSource="login.png"
+                            Text="Venha Conhecer"
+                            VerticalOptions="Center" />
                     </StackLayout>
-                </Frame>                
+                </Frame>
 
-               
+
             </StackLayout>
         </Grid>
     </ContentPage.Content>

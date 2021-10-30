@@ -65,12 +65,7 @@ namespace LumberjackRockClub.ViewModel
                 });
                 if (file == null)
                     return;
-                CaminhoImagem = ImageSource.FromStream(() => file.GetStream());
-                //CaminhoImagem.Source = ImageSource.FromStream(() =>
-                //{
-                //    var imageStram = file.GetStream();
-                //    return imageStram;
-                //});
+                CaminhoImagem = ImageSource.FromStream(() => file.GetStream());                
                 await StoreImages(file.GetStream());
             }
             catch (Exception ex)

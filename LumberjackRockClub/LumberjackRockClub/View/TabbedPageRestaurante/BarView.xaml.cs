@@ -3,6 +3,7 @@ using Firebase.Database.Query;
 using Firebase.Storage;
 using LumberjackRockClub.FirebaseServices;
 using LumberjackRockClub.Model;
+using LumberjackRockClub.Services;
 using Plugin.Media;
 using Plugin.Media.Abstractions;
 using System;
@@ -30,8 +31,19 @@ namespace LumberjackRockClub.View.TabbedPageRestaurante
         protected async override void OnAppearing()
         {
             //base.OnAppearing();
-            LancheService lanche = new LancheService();
-            collectionview.ItemsSource = await lanche.RetornaHamburgers();
+            bool verificaConexao = Conectividade.VerificaConectividade();
+
+            if (verificaConexao)
+            {
+                LancheService lanche = new LancheService();
+                collectionview.ItemsSource = await lanche.RetornaHamburgers();
+            }
+            else
+            {
+                await DisplayAlert("Erro", "Sem Conexão de Rede.Verifique Sua Conexão de Internet e Tente Novamente", "OK");
+            }
+
+            
         }
         
     }

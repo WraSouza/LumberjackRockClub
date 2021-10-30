@@ -1,73 +1,77 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:mvvm="clr-namespace:LumberjackRockClub.ViewModel"
-             NavigationPage.HasNavigationBar="False"
-             Title="Lumberjack Rock Club"
-             BackgroundColor="White"
-             x:Class="LumberjackRockClub.View.MainView">
+<ContentPage
+    x:Class="LumberjackRockClub.View.MainView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:mvvm="clr-namespace:LumberjackRockClub.ViewModel"
+    Title="Lumberjack Rock Club"
+    BackgroundColor="White"
+    NavigationPage.HasNavigationBar="False">
 
     <ContentPage.BindingContext>
-        <mvvm:MainViewModel/>
+        <mvvm:MainViewModel />
     </ContentPage.BindingContext>
-    
+
     <ContentPage.Content>
         <Grid>
             <StackLayout>
 
-                <Image Source="barbearia_logo.png"
-                       Margin="0,90,0,0"
-                       VerticalOptions="Start"
-                       HorizontalOptions="Center"
-                       HeightRequest="150"/>
+                <Image
+                    Margin="0,90,0,0"
+                    HeightRequest="150"
+                    HorizontalOptions="Center"
+                    Source="barbearia_logo.png"
+                    VerticalOptions="Start" />
 
-                <Button BackgroundColor="Black"
-                        Command="{Binding OpenCreatAccount}"
-                        CornerRadius="20"
-                        Margin="30,100,30,0"
-                        Text="Criar Conta"
-                        TextColor="White"/>
+                <Button
+                    Margin="30,100,30,0"
+                    BackgroundColor="Black"
+                    Command="{Binding OpenCreatAccount}"
+                    CornerRadius="20"
+                    Text="Criar Conta"
+                    TextColor="White" />
 
-                <Button BackgroundColor="White"
-                        BorderColor="Black"
-                        BorderWidth="1"
-                        CornerRadius="20"
-                        Margin="30,20,30,0"
-                        Text="Sou Visitante"
-                        Command="{Binding OpenVisitors}"
-                        TextColor="Black"/>
+                <Button
+                    Margin="30,20,30,0"
+                    BackgroundColor="White"
+                    BorderColor="Black"
+                    BorderWidth="1"
+                    Command="{Binding OpenVisitors}"
+                    CornerRadius="20"
+                    Text="Sou Visitante"
+                    TextColor="Black" />
 
-                <StackLayout Orientation="Horizontal"
-                             Margin="0,50,0,0"
-                             Spacing="30"
-                             HorizontalOptions="Center"
-                             VerticalOptions="Center">
+                <StackLayout
+                    Margin="0,50,0,0"
+                    HorizontalOptions="Center"
+                    Orientation="Horizontal"
+                    Spacing="30"
+                    VerticalOptions="Center">
 
                     <Image Source="facebook.png">
                         <Image.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding OpenFacebook}"/>
+                            <TapGestureRecognizer Command="{Binding OpenFacebook}" />
                         </Image.GestureRecognizers>
                     </Image>
 
                     <Image Source="instagram.png">
                         <Image.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding OpenInstagram}"/>
+                            <TapGestureRecognizer Command="{Binding OpenInstagram}" />
                         </Image.GestureRecognizers>
                     </Image>
                 </StackLayout>
 
-                <StackLayout Orientation="Horizontal"
-                             Margin="0,0,0,20"
-                             VerticalOptions="EndAndExpand"
-                             HorizontalOptions="Center">
-                    
-                    <Label Text="Já tem conta?"
-                           TextColor="Black"/>
+                <StackLayout
+                    Margin="0,0,0,20"
+                    HorizontalOptions="Center"
+                    Orientation="Horizontal"
+                    VerticalOptions="EndAndExpand">
 
-                    <Label Text="Fazer Login"
-                           TextColor="Blue">
+                    <Label Text="Já tem conta?" TextColor="Black" />
+
+                    <Label Text="Fazer Login" TextColor="Blue">
                         <Label.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding OpenLogin}"/>
+                            <TapGestureRecognizer Command="{Binding OpenLogin}" />
                         </Label.GestureRecognizers>
                     </Label>
                 </StackLayout>

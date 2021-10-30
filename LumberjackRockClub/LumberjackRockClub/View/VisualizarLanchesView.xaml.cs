@@ -20,7 +20,6 @@ namespace LumberjackRockClub.View
 
         protected async override void OnAppearing()
         {
-            //base.OnAppearing();
             LancheService lanche = new LancheService();
             collectionview.ItemsSource = await lanche.RetornaHamburgers();
         }

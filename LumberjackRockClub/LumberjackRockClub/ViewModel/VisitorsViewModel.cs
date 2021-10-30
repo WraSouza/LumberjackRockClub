@@ -21,13 +21,12 @@ namespace LumberjackRockClub.ViewModel
         {
             this.Navigation = navigation;
             OpenBarber = new Command(async () => await OpenBarberView());
-            OpenRestaurant = new Command(async () => await OpenRestaurantView());
+            OpenRestaurant = new Command( () => OpenRestaurantView());
         }
 
-        private async Task OpenRestaurantView()
+        private void OpenRestaurantView()
         {
-             Application.Current.MainPage = new View.TabbedPageRestaurante.MenuRestauranteView();
-            //await Navigation.PushAsync(new View.TabbedPageRestaurante.MenuRestauranteView());
+              Application.Current.MainPage = new View.TabbedPageRestaurante.MenuRestauranteView();           
         }
 
         private async Task OpenBarberView()

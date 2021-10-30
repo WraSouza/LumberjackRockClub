@@ -1,63 +1,72 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             NavigationPage.HasNavigationBar="False"
-             BackgroundColor="White"
-             Visual="Material"
-             Title="Crie Sua Conta"
-             xmlns:mvvm="clr-namespace:LumberjackRockClub.ViewModel"
-             x:Class="LumberjackRockClub.View.CreateAccountView">
+<ContentPage
+    x:Class="LumberjackRockClub.View.CreateAccountView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:mvvm="clr-namespace:LumberjackRockClub.ViewModel"
+    Title="Crie Sua Conta"
+    BackgroundColor="White"
+    NavigationPage.HasNavigationBar="False"
+    Visual="Material">
     <ContentPage.BindingContext>
-        <mvvm:CreateAccountViewModel/>
+        <mvvm:CreateAccountViewModel />
     </ContentPage.BindingContext>
-    
+
     <ContentPage.Content>
         <Grid>
             <StackLayout>
-                <Image Source="barbearia_logo.png"
-                       Margin="0,40,0,0"
-                       VerticalOptions="Start"
-                       HorizontalOptions="Center"
-                       HeightRequest="150"/>
+                <Image
+                    Margin="0,40,0,0"
+                    HeightRequest="150"
+                    HorizontalOptions="Center"
+                    Source="barbearia_logo.png"
+                    VerticalOptions="Start" />
 
-                <Label Text="E-mail"
-                       Margin="20,40,0,0"
-                       TextColor="Black"
-                       FontAttributes="Bold"
-                       FontSize="20"/>
+                <Label
+                    Margin="20,40,0,0"
+                    FontAttributes="Bold"
+                    FontSize="20"
+                    Text="E-mail"
+                    TextColor="Black" />
 
-                <Entry BackgroundColor="White"
-                       Text="{Binding Email}"
-                       Margin="20,0,20,0"
-                       PlaceholderColor="Black"/>
+                <Entry
+                    Margin="20,0,20,0"
+                    BackgroundColor="White"
+                    PlaceholderColor="Black"
+                    Text="{Binding Email}" />
 
-                <Label Text="Nome de Usuário"
-                       Margin="20,10,0,0"
-                       TextColor="Black"
-                       FontAttributes="Bold"
-                       FontSize="20"/>
+                <Label
+                    Margin="20,10,0,0"
+                    FontAttributes="Bold"
+                    FontSize="20"
+                    Text="Nome de Usuário"
+                    TextColor="Black" />
 
-                <Entry BackgroundColor="White"
-                       Text="{Binding Name}"
-                       Margin="20,0,20,0"
-                       PlaceholderColor="Black"/>
+                <Entry
+                    Margin="20,0,20,0"
+                    BackgroundColor="White"
+                    PlaceholderColor="Black"
+                    Text="{Binding Name}" />
 
-                <Label Text="Senha"
-                       Margin="20,10,0,0"
-                       TextColor="Black"
-                       FontAttributes="Bold"
-                       FontSize="20"/>
+                <Label
+                    Margin="20,10,0,0"
+                    FontAttributes="Bold"
+                    FontSize="20"
+                    Text="Senha"
+                    TextColor="Black" />
 
-                <Entry BackgroundColor="White"
-                       Text="{Binding Password}"
-                       IsPassword="True"
-                       Margin="20,0,20,0"
-                       PlaceholderColor="Black"/>
+                <Entry
+                    Margin="20,0,20,0"
+                    BackgroundColor="White"
+                    IsPassword="True"
+                    PlaceholderColor="Black"
+                    Text="{Binding Password}" />
 
-                <Button Text="Cria Conta"
-                        Command="{Binding CreateUser}"
-                        TextColor="White"
-                        BackgroundColor="Black"/>
+                <Button
+                    BackgroundColor="Black"
+                    Command="{Binding CreateUser}"
+                    Text="Cria Conta"
+                    TextColor="White" />
             </StackLayout>
         </Grid>
     </ContentPage.Content>

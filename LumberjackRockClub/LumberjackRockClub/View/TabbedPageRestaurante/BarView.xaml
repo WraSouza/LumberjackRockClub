@@ -1,84 +1,95 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
-             Title="Barbearia Lumberjack"
-             BackgroundColor="White"
-             xmlns:mvvm="clr-namespace:LumberjackRockClub.ViewModel"
-             xmlns:views="clr-namespace:LumberjackRockClub.View.TabbedPageRestaurante"
-             x:Class="LumberjackRockClub.View.TabbedPageRestaurante.BarView">
+<ContentPage
+    x:Class="LumberjackRockClub.View.TabbedPageRestaurante.BarView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:mvvm="clr-namespace:LumberjackRockClub.ViewModel"
+    xmlns:views="clr-namespace:LumberjackRockClub.View.TabbedPageRestaurante"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    Title="Barbearia Lumberjack"
+    BackgroundColor="White">
 
     <ContentPage.BindingContext>
-        <mvvm:CadastrarLancheViewModel/>
+        <mvvm:CadastrarLancheViewModel />
     </ContentPage.BindingContext>
 
 
     <Grid>
-            <xct:TabView TabStripPlacement="Bottom"
-                         TabStripHeight="60"                             
-                         TabIndicatorColor="Red"                        
-                         VerticalOptions="FillAndExpand">
+        <xct:TabView
+            TabIndicatorColor="Red"
+            TabStripHeight="60"
+            TabStripPlacement="Bottom"
+            VerticalOptions="FillAndExpand">
 
-            <xct:TabViewItem Icon="burger.png"  
-                             IconSelected="burgerSelected.png"
-                             TextColorSelected="#FF6E72"
-                             Text="Lanches/Petiscos">
+            <xct:TabViewItem
+                Icon="burger.png"
+                IconSelected="burgerSelected.png"
+                Text="Lanches/Petiscos"
+                TextColorSelected="#FF6E72">
                 <Grid>
                     <CollectionView x:Name="collectionview" Margin="10,5,10,0">
                         <CollectionView.ItemsLayout>
-                            <GridItemsLayout Span="2" Orientation="Vertical" VerticalItemSpacing="5" HorizontalItemSpacing="10"/>
+                            <GridItemsLayout
+                                HorizontalItemSpacing="10"
+                                Orientation="Vertical"
+                                Span="2"
+                                VerticalItemSpacing="5" />
                         </CollectionView.ItemsLayout>
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
-                                <Frame CornerRadius="10" 
-                       HasShadow="False" 
-                       BorderColor="Gainsboro"
-                       IsClippedToBounds="True">
+                                <Frame
+                                    BorderColor="Gainsboro"
+                                    CornerRadius="10"
+                                    HasShadow="False"
+                                    IsClippedToBounds="True">
 
                                     <StackLayout HorizontalOptions="CenterAndExpand">
-                                        <Image Source="{Binding CaminhoImagem}"
-                               HeightRequest="100"/>
+                                        <Image HeightRequest="100" Source="{Binding CaminhoImagem}" />
 
-                                        <Label Text="{Binding NomeHamburger}"                               
-                               FontFamily="MontserratMedium"
-                               TextColor="Black"
-                               FontSize="18"
-                               VerticalTextAlignment="Center"/>
+                                        <Label
+                                            FontFamily="MontserratMedium"
+                                            FontSize="18"
+                                            Text="{Binding NomeHamburger}"
+                                            TextColor="Black"
+                                            VerticalTextAlignment="Center" />
 
-                                        <Label Text="{Binding Ingredientes}"                               
-                               TextColor="Black"
-                               FontSize="13"
-                               FontFamily="MontserratRegular"/>
+                                        <Label
+                                            FontFamily="MontserratRegular"
+                                            FontSize="13"
+                                            Text="{Binding Ingredientes}"
+                                            TextColor="Black" />
 
-                                        <Label Text="Preço"                               
-                               FontFamily="MontserratMedium"
-                               TextColor="Black"/>
+                                        <Label
+                                            FontFamily="MontserratMedium"
+                                            Text="Preço"
+                                            TextColor="Black" />
 
-                                        <Label Text="{Binding Preco}"                               
-                               FontFamily="MontserratRegular"/>
+                                        <Label FontFamily="MontserratRegular" 
+                                               Text="{Binding Preco}" />
                                     </StackLayout>
                                 </Frame>
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
-                    </CollectionView>                   
+                    </CollectionView>
                 </Grid>
             </xct:TabViewItem>
 
 
-            <xct:TabViewItem Icon="guitar.png"
-                             TextColorSelected="#FF6E72"
-                             IconSelected="guitarSelected.png"
-                             Text="Shows">
+            <xct:TabViewItem
+                Icon="guitar.png"
+                IconSelected="guitarSelected.png"
+                Text="Shows"
+                TextColorSelected="#FF6E72">
                 <StackLayout>
-                    <Label Text="Bem-Vindos Aos Show da Semana"/>
+                    <Label Text="Bem-Vindos Aos Show da Semana" />
                 </StackLayout>
             </xct:TabViewItem>
 
-            </xct:TabView>
-        </Grid>
-        
+        </xct:TabView>
+    </Grid>
 
 
-    
+
+
 
 </ContentPage>
