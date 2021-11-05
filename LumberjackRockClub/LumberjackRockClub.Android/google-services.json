@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "391167710353",
+    "project_id": "barbearialumberjack-249aa",
+    "storage_bucket": "barbearialumberjack-249aa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:391167710353:android:ced9c6fdbccbeac3cc9b30",
+        "android_client_info": {
+          "package_name": "br.com.mlsolucoes.barbearialumberjack"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "391167710353-9gamdlmrqhc7318r8ak8179jfqi4lh4u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCx6ABw_kGfhK8Dt0PTi6m8kX4wJO96pHo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "391167710353-9gamdlmrqhc7318r8ak8179jfqi4lh4u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
