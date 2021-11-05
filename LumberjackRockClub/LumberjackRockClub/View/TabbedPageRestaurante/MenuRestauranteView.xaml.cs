@@ -33,5 +33,11 @@ namespace LumberjackRockClub.View.TabbedPageRestaurante
         {
             Application.Current.MainPage = new NavigationPage(new View.MainView());
         }
+
+        private void openPromocoesView(object sender, EventArgs e)
+        {
+            IsPresented = false;
+            Detail = new NavigationPage(new PromocaoLanchesView());
+        }
     }
 }

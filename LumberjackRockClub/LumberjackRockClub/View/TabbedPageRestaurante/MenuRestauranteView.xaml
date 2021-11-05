@@ -14,11 +14,15 @@
                         Clicked="openRestaurantView"
                         ImageSource="restaurant.png"/>
 
-
                 <Button Text="Bar/Lanchonete"
                         BackgroundColor="White"
                         Clicked="openBarView"
                         ImageSource="beer.png"/>
+
+                <Button Text="Promoções"
+                        Clicked="openPromocoesView"
+                        BackgroundColor="White"                        
+                        ImageSource="discount.png"/>
 
                 <Button Text="Sair"
                         BackgroundColor="White"                        

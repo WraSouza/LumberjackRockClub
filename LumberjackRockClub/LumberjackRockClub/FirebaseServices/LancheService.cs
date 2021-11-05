@@ -26,8 +26,19 @@ namespace LumberjackRockClub.FirebaseServices
                     NomeHamburger = item.Object.NomeHamburger,
                     Ingredientes = item.Object.Ingredientes,
                     Preco = item.Object.Preco,
-                    CaminhoImagem = item.Object.CaminhoImagem
+                    CaminhoImagem = item.Object.CaminhoImagem,
+                    Promocao = item.Object.Promocao
                 }).ToList();
+        }
+
+        public async Task<List<Hamburger>> RetornaHamburgerPromocao()
+        {            
+            var hamburgersPromocao = await RetornaHamburgers();
+            await firebase
+                .Child("Lanches")
+                .OnceAsync<Hamburger>();                
+
+            return hamburgersPromocao.Where(a => a.Promocao).ToList();
         }
 
         public async Task<bool> EnviarLanche(string nomeHamburger, string ingredientesHamburger, string precoHamburger, string referenciaImage)
@@ -38,7 +49,8 @@ namespace LumberjackRockClub.FirebaseServices
                         NomeHamburger = nomeHamburger,
                         Ingredientes = ingredientesHamburger,
                         Preco = precoHamburger,
-                        CaminhoImagem = referenciaImage
+                        CaminhoImagem = referenciaImage,
+                        Promocao = false
                     });
 
             return true;

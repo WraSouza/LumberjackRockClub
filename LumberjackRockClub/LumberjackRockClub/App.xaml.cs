@@ -13,7 +13,7 @@ namespace LumberjackRockClub
 
             MainPage = new NavigationPage ( new View.MainView() );
 
-            CrossFirebasePushNotification.Current.OnTokenRefresh += Current_OnTokenRefresh;
+           CrossFirebasePushNotification.Current.OnTokenRefresh += Current_OnTokenRefresh;
 
         }
 

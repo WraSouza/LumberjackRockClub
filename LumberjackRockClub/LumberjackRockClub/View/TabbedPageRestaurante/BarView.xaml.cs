@@ -41,10 +41,7 @@ namespace LumberjackRockClub.View.TabbedPageRestaurante
             else
             {
                 await DisplayAlert("Erro", "Sem Conexão de Rede.Verifique Sua Conexão de Internet e Tente Novamente", "OK");
-            }
-
-            
-        }
-        
+            }            
+        }        
     }
 }

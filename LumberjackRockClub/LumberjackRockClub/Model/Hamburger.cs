@@ -13,5 +13,6 @@ namespace LumberjackRockClub.Model
         public string Preco { get; set; }
         public string Ingredientes { get; set; }
         public string CaminhoImagem { get; set; }
+        public bool Promocao { get; set; }
     }
 }

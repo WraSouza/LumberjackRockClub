@@ -136,6 +136,7 @@
     <Content Include="beer.png" />
     <Content Include="burger.png" />
     <Content Include="burgerSelected.png" />
+    <Content Include="discount.png" />
     <Content Include="dish.png" />
     <Content Include="facebook.png" />
     <Content Include="guitar.png" />
