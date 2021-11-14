@@ -64,8 +64,7 @@
                                             Text="Preço"
                                             TextColor="Black" />
 
-                                        <Label FontFamily="MontserratRegular" 
-                                               Text="{Binding Preco}" />
+                                        <Label FontFamily="MontserratRegular" Text="{Binding Preco}" />
                                     </StackLayout>
                                 </Frame>
                             </DataTemplate>

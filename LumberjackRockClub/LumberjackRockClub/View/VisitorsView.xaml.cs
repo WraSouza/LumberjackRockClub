@@ -1,4 +1,6 @@
-﻿using LumberjackRockClub.ViewModel;
+﻿using LumberjackRockClub.FirebaseServices;
+using LumberjackRockClub.Services;
+using LumberjackRockClub.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +20,24 @@ namespace LumberjackRockClub.View
             InitializeComponent();
 
             BindingContext = new VisitorsViewModel(Navigation);
+        }
+
+        protected async override void OnAppearing()
+        {
+            //base.OnAppearing();
+            bool verificaConexao = Conectividade.VerificaConectividade();
+
+            if (verificaConexao)
+            {
+                LancheService lanche = new LancheService();
+                collectionview.ItemsSource = await lanche.RetornaHamburgerPromocao();
+            }
+            else
+            {
+                await DisplayAlert("Erro", "Sem Conexão de Rede.Verifique Sua Conexão de Internet e Tente Novamente", "OK");
+            }
+
+
         }
     }
 }
