@@ -6,6 +6,7 @@
     xmlns:mvvm="clr-namespace:LumberjackRockClub.ViewModel"
     BackgroundColor="White"
     NavigationPage.HasNavigationBar="False">
+
     <ContentPage.BindingContext>
         <mvvm:VisitorsViewModel />
     </ContentPage.BindingContext>
@@ -13,15 +14,70 @@
     <ContentPage.Content>
         <StackLayout>
 
-            <Image
-                    Margin="0,50,0,0"
-                    HeightRequest="150"
-                    HorizontalOptions="Center"
-                    Source="barbearia_logo.png"
-                    VerticalOptions="Start" />
-            <Grid>
-                <Image Source="hamburgerLanche.jpg"
-                       Aspect="Fill"/>
+            <Grid
+                Margin="10,40,10,0"
+                ColumnDefinitions="2*,2*"
+                RowDefinitions="2*,2*,2*">
+                <!--  Primeira Coluna  -->
+                <Grid>
+                    <Image Aspect="Fill" Source="hamburgerLanche.jpg" />
+                    <StackLayout Grid.Row="0" Grid.Column="0">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding OpenHamburger}" />
+                        </StackLayout.GestureRecognizers>
+                        <Label
+                            FontFamily="MontserratRegular"
+                            FontSize="20"
+                            Text="Hamburgers"
+                            TextColor="White" />
+                    </StackLayout>
+                </Grid>
+
+                <!--  Segunda Coluna  -->
+                <Grid Grid.Column="1">
+                    <Image Aspect="Fill" Source="almocologo.jpg" />
+                    <StackLayout Grid.Row="0" Grid.Column="0">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding OpenHamburger}" />
+                        </StackLayout.GestureRecognizers>
+                        <Label
+                            FontFamily="MontserratRegular"
+                            FontSize="20"
+                            Text="Almoços"
+                            TextColor="White"
+                            VerticalOptions="EndAndExpand" />
+                    </StackLayout>
+                </Grid>
+
+                <Grid
+                    Grid.Row="1"
+                    Grid.ColumnSpan="2"
+                    Margin="0,10,0,0">
+                    <Image Aspect="Fill" Source="rocklogo.jpg" />
+                    <StackLayout>
+                        <Label
+                            FontFamily="MontserratRegular"
+                            FontSize="20"
+                            Text="Shows"
+                            TextColor="White"
+                            VerticalOptions="EndAndExpand" />
+                    </StackLayout>
+                </Grid>
+
+                <Grid
+                    Grid.Row="2"
+                    Grid.ColumnSpan="2"
+                    Margin="0,10,0,0">
+                    <Image Aspect="Fill" Source="barbershop.jpg" />
+                    <StackLayout>
+                        <Label
+                            FontFamily="MontserratRegular"
+                            FontSize="20"
+                            Text="Barbearia"
+                            TextColor="White"
+                            VerticalOptions="EndAndExpand" />
+                    </StackLayout>
+                </Grid>
             </Grid>
 
             <!--<CollectionView
@@ -44,128 +100,6 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>-->
 
-            <Grid Margin="10,0,10,0">
-                <Image Margin="5,0,10,0" Source="barbershop.jpg" />
-                <StackLayout>
-                    <Label
-                        Margin="10,0,10,0"
-                        FontFamily="MontserratRegular"
-                        Text="Barbearia"
-                        TextColor="White" />
-                </StackLayout>
-            </Grid>
-
-            <!--<Image
-                    Margin="0,50,0,0"
-                    HeightRequest="150"
-                    HorizontalOptions="Center"
-                    Source="barbearia_logo.png"
-                    VerticalOptions="Start" />
-
-                <Label Text="Promoções"
-                       Margin="20,0,0,0"
-                       FontAttributes="Bold"
-                       FontSize="20"
-                       TextColor="Black"
-                       FontFamily="Montserrat"/>
-
-                <Grid Margin="20,0,20,0" ColumnDefinitions="2*,2*">
-
-                    <Frame BackgroundColor="Red"
-                           CornerRadius="15"
-                           IsClippedToBounds="True"
-                           HeightRequest="150"
-                           Grid.Column="0"
-                           Grid.Row="0">
-                        <Grid>
-                            <Image Source="hamburgerLogo.png"
-                                   Aspect="AspectFill"/>
-                        </Grid>
-
-            -->
-            <!--<StackLayout>
-                                <Label Text="Hamburgers"
-                                   FontAttributes="Bold"
-                                   FontSize="20"
-                                   TextColor="White"
-                                   FontFamily="Montserrat"/>
-                            </StackLayout>-->
-            <!--
-
-
-
-                    </Frame>
-
-                    <Frame BackgroundColor="Green"
-                           CornerRadius="15"
-                           Grid.Column="1"
-                           Grid.Row="0">
-                        <Grid>
-                            <Label Text="Almoço"
-                                   FontAttributes="Bold"
-                                   FontSize="20"
-                                   TextColor="White"
-                                   FontFamily="Montserrat"/>
-                            <Image Source="hamburgerLogo.png"
-                                   TranslationY="65"/>
-                        </Grid>
-                    </Frame>
-                </Grid>
-
-                <Label Text="Barbearia"
-                       Margin="20,20,0,0"
-                       FontAttributes="Bold"
-                       FontSize="20"
-                       TextColor="Black"
-                       FontFamily="Montserrat"/>-->
-
-
-            <!--<Frame HorizontalOptions="Center">
-                    <StackLayout>
-                        <Image
-                            Margin="0,20,0,0"
-                            HeightRequest="60"
-                            Source="barberpole.png" />
-
-                        <Label
-                            FontSize="30"
-                            HorizontalTextAlignment="Center"
-                            Text="Barbearia"
-                            TextColor="Black" />
-
-                        <Button
-                            BackgroundColor="White"
-                            Command="{Binding OpenBarber}"
-                            HorizontalOptions="Center"
-                            ImageSource="schedule.png"
-                            Text="Marcar Horário"
-                            VerticalOptions="Center" />
-                    </StackLayout>
-
-                </Frame>
-
-                <Frame HorizontalOptions="Center">
-                    <StackLayout>
-                        <Image
-                            Margin="0,20,0,0"
-                            HeightRequest="60"
-                            Source="restaurant.png" />
-
-                        <Label
-                            FontSize="30"
-                            HorizontalTextAlignment="Center"
-                            Text="Restaurante"
-                            TextColor="Black" />
-
-                        <Button
-                            BackgroundColor="White"
-                            Command="{Binding OpenRestaurant}"
-                            HorizontalOptions="Center"
-                            ImageSource="login.png"
-                            Text="Venha Conhecer"
-                            VerticalOptions="Center" />
-                    </StackLayout>
-                </Frame>-->
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

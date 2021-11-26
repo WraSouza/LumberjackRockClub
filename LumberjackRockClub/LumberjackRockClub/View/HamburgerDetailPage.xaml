@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LumberjackRockClub.View.HamburgerDetailPage">
+    <ContentPage.Content>
+        <StackLayout>
+            
+            <CollectionView
+                x:Name="collectionview"
+                Margin="10,0,0,0">
+                <!--<CollectionView.ItemsLayout>
+                    <GridItemsLayout HorizontalItemSpacing="10" Orientation="Horizontal" />
+                </CollectionView.ItemsLayout>-->
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        
+                            <StackLayout>
+                                <Image HeightRequest="200" Source="{Binding CaminhoImagem}" />
+                                <Label FontFamily="MontserratMedium" Text="{Binding NomeHamburger}"
+                                       
+                                       FontSize="20"/>
+                                <Label FontFamily="MontserratMedium"
+                                       
+                                       FontSize="18"
+                                       Text="{Binding Ingredientes}" />
+                                <Label FontFamily="MontserratMedium" Text="{Binding Preco}" />
+                            </StackLayout>
+                        
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -55,5 +55,24 @@ namespace LumberjackRockClub.FirebaseServices
 
             return true;
         }
+
+        public async Task<List<Hamburger>> RetornaHamburgerPorNome(string nomeHamburger)
+        {
+            var hamburgersPromocao = await RetornaHamburgers();
+            await firebase
+                .Child("Lanches")
+                .OnceAsync<Hamburger>();
+
+            return hamburgersPromocao.Where(a => a.NomeHamburger==nomeHamburger).ToList();
+            //return (await firebase.Child("Lanches")
+            //    .OnceAsync<Hamburger>()).Select(item => new Hamburger
+            //    {
+            //        NomeHamburger = item.Object.NomeHamburger,
+            //        Ingredientes = item.Object.Ingredientes,
+            //        Preco = item.Object.Preco,
+            //        CaminhoImagem = item.Object.CaminhoImagem,
+            //        Promocao = item.Object.Promocao
+            //    }).ToList();
+        }
     }
 }

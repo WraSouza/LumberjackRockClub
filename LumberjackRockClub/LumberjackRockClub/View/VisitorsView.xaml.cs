@@ -22,22 +22,22 @@ namespace LumberjackRockClub.View
             BindingContext = new VisitorsViewModel(Navigation);
         }
 
-        protected async override void OnAppearing()
-        {
-            //base.OnAppearing();
-            bool verificaConexao = Conectividade.VerificaConectividade();
+        //protected async override void OnAppearing()
+        //{
+        //    //base.OnAppearing();
+        //    bool verificaConexao = Conectividade.VerificaConectividade();
 
-            if (verificaConexao)
-            {
-                LancheService lanche = new LancheService();
-                collectionview.ItemsSource = await lanche.RetornaHamburgerPromocao();
-            }
-            else
-            {
-                await DisplayAlert("Erro", "Sem Conexão de Rede.Verifique Sua Conexão de Internet e Tente Novamente", "OK");
-            }
+        //    if (verificaConexao)
+        //    {
+        //        LancheService lanche = new LancheService();
+        //        collectionview.ItemsSource = await lanche.RetornaHamburgerPromocao();
+        //    }
+        //    else
+        //    {
+        //        await DisplayAlert("Erro", "Sem Conexão de Rede.Verifique Sua Conexão de Internet e Tente Novamente", "OK");
+        //    }
 
 
-        }
+        //}
     }
 }
